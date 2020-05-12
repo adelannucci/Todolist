@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">todoProject</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="title">Name the task</string>
+    <string name="description">Add a description</string>
+    <string name="add">add</string>
+    <string name="delete">Delete this task</string>
+    <string name="empty">The list of tasks is empty!!</string>
+</resources>
