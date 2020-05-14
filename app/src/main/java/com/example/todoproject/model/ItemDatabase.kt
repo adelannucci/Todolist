@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.model
 
 import android.content.Context
 import androidx.room.Database
@@ -20,13 +20,18 @@ abstract class ItemDatabase : RoomDatabase() {
         private var INSTANCE: ItemDatabase? = null
 
         fun getInstance(context: Context, scope: CoroutineScope): ItemDatabase {
-            return INSTANCE ?: synchronized(this) {
+            return INSTANCE
+                ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     ItemDatabase::class.java,
                     "todo_database")
                     .fallbackToDestructiveMigration()
-                    .addCallback(ItemDatabaseCallback(scope))
+                    .addCallback(
+                        ItemDatabaseCallback(
+                            scope
+                        )
+                    )
                     .build()
                 INSTANCE = instance
                 instance
@@ -39,7 +44,9 @@ abstract class ItemDatabase : RoomDatabase() {
                 super.onOpen(db)
                 INSTANCE?.let { database ->
                     scope.launch(Dispatchers.IO) {
-                        populateDatabase(database.itemDao())
+                        populateDatabase(
+                            database.itemDao()
+                        )
                     }
                 }
             }

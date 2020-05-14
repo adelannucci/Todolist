@@ -1,8 +1,11 @@
-package com.example.todoproject
+package com.example.todoproject.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import com.example.todoproject.model.TaskRepository
+import com.example.todoproject.model.Item
+import com.example.todoproject.model.ItemDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

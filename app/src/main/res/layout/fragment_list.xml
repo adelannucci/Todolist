@@ -5,13 +5,13 @@
     <data>
         <variable
             name="listViewModel"
-            type="com.example.todoproject.ListViewModel" />
+            type="com.example.todoproject.viewmodel.ListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ListFragment">
+        tools:context=".ui.ListFragment">
 
         <ProgressBar
             android:id="@+id/progressbar"

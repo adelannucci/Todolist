@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.example.todoproject.viewmodel.ListViewModel
+import com.example.todoproject.viewmodel.ListViewModelFactory
+import com.example.todoproject.R
 import com.example.todoproject.databinding.FragmentListBinding
 import kotlinx.android.synthetic.main.fragment_list.*
 
@@ -25,11 +28,13 @@ class ListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_list, container, false)
+            inflater,
+            R.layout.fragment_list, container, false)
 
         val application = requireNotNull(this.activity).application
 
-        val viewModelFactory = ListViewModelFactory(application)
+        val viewModelFactory =
+            ListViewModelFactory(application)
 
         viewModel =
             ViewModelProvider(this, viewModelFactory).get(ListViewModel::class.java)
@@ -37,7 +42,11 @@ class ListFragment : Fragment() {
         binding?.lifecycleOwner = this
 
         val recyclerView = binding?.recyclerView
-        val adapter = ListProgressAdapter(context, binding?.progressbar!!, viewModel!!)
+        val adapter = ListProgressAdapter(
+            context,
+            binding?.progressbar!!,
+            viewModel!!
+        )
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(context)
         val itemDecoration: ItemDecoration =

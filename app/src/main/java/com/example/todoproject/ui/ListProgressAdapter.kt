@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.ui
 
 import android.content.Context
 import android.graphics.Color
@@ -9,10 +9,14 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoproject.viewmodel.ListViewModel
+import com.example.todoproject.R
+import com.example.todoproject.model.Item
 
 class ListProgressAdapter internal constructor(context: Context?,
                                                progressBar: ProgressBar,
-                                               viewModel: ListViewModel)
+                                               viewModel: ListViewModel
+)
     : RecyclerView.Adapter<ListProgressAdapter.TaskViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)

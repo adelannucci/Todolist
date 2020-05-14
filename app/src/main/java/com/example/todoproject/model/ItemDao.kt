@@ -1,7 +1,8 @@
-package com.example.todoproject
+package com.example.todoproject.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.todoproject.model.Item
 
 @Dao
 interface ItemDao {

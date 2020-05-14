@@ -1,7 +1,9 @@
-package com.example.todoproject
+package com.example.todoproject.model
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import com.example.todoproject.model.Item
+import com.example.todoproject.model.ItemDao
 
 class TaskRepository(private val itemDao: ItemDao) {
 

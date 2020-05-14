@@ -1,14 +1,8 @@
-package com.example.todoproject
+package com.example.todoproject.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.CheckBox
-import android.widget.Toast
-
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.todoproject.R
 
 class MainActivity : AppCompatActivity() {
 

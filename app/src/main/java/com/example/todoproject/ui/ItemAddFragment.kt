@@ -1,4 +1,4 @@
-package com.example.todoproject
+package com.example.todoproject.ui
 
 import android.app.Activity
 import android.content.Context
@@ -13,7 +13,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.todoproject.viewmodel.ItemAddViewModel
+import com.example.todoproject.viewmodel.ItemAddViewModelFactory
+import com.example.todoproject.R
 import com.example.todoproject.databinding.FragmentItemBinding
+import com.example.todoproject.model.Item
 import kotlinx.android.synthetic.main.fragment_item.view.*
 
 
@@ -30,7 +34,8 @@ class ItemAddFragment : Fragment() {
                                savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_item, container, false
+            inflater,
+            R.layout.fragment_item, container, false
         )
 
         description = binding?.description
@@ -38,7 +43,8 @@ class ItemAddFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val viewModelFactory = ItemAddViewModelFactory(application)
+        val viewModelFactory =
+            ItemAddViewModelFactory(application)
 
         viewModel =
             ViewModelProvider(this, viewModelFactory).get(ItemAddViewModel::class.java)
